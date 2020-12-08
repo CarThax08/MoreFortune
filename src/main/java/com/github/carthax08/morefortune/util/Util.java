@@ -1,5 +1,6 @@
 package com.github.carthax08.morefortune.util;
 
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -16,20 +17,43 @@ public class Util {
         }else if(level == 3){
             int r = random.nextInt(100);
             if(r <= 40){
-                ItemStack itemStack = new ItemStack(block.getType());
-                world.dropItemNaturally(block.getLocation(), itemStack);
+                if(block.getType().equals(Material.CLAY)){
+                    ItemStack itemStack = new ItemStack(Material.CLAY_BALL, 4);
+                    world.dropItemNaturally(block.getLocation(), itemStack);
+                }else {
+                    ItemStack itemStack = new ItemStack(block.getType(), 1);
+                    world.dropItemNaturally(block.getLocation(), itemStack);
+                }
             }else if(r <= 60){
-                ItemStack itemStack = new ItemStack(block.getType());
-                itemStack.setAmount(2);
-                world.dropItemNaturally(block.getLocation(), itemStack);
+                if(block.getType().equals(Material.CLAY)){
+                    ItemStack itemStack = new ItemStack(Material.CLAY_BALL, 4);
+                    itemStack.setAmount(itemStack.getAmount() * 2);
+                    world.dropItemNaturally(block.getLocation(), itemStack);
+                }else {
+                    ItemStack itemStack = new ItemStack(block.getType(), 1);
+                    itemStack.setAmount(itemStack.getAmount() * 2);
+                    world.dropItemNaturally(block.getLocation(), itemStack);
+                }
             }else if(r <= 80){
-                ItemStack itemStack = new ItemStack(block.getType());
-                itemStack.setAmount(3);
-                world.dropItemNaturally(block.getLocation(), itemStack);
-            }else if(r <= 100){
-                ItemStack itemStack = new ItemStack(block.getType());
-                itemStack.setAmount(4);
-                world.dropItemNaturally(block.getLocation(), itemStack);
+                if(block.getType().equals(Material.CLAY)){
+                    ItemStack itemStack = new ItemStack(Material.CLAY_BALL, 4);
+                    itemStack.setAmount(itemStack.getAmount() * 3);
+                    world.dropItemNaturally(block.getLocation(), itemStack);
+                }else {
+                    ItemStack itemStack = new ItemStack(block.getType(), 1);
+                    itemStack.setAmount(itemStack.getAmount() * 3);
+                    world.dropItemNaturally(block.getLocation(), itemStack);
+                }
+            }else if(r <= 100) {
+                if (block.getType().equals(Material.CLAY)) {
+                    ItemStack itemStack = new ItemStack(Material.CLAY_BALL, 4);
+                    itemStack.setAmount(itemStack.getAmount() * 4);
+                    world.dropItemNaturally(block.getLocation(), itemStack);
+                } else {
+                    ItemStack itemStack = new ItemStack(block.getType(), 1);
+                    itemStack.setAmount(itemStack.getAmount() * 4);
+                    world.dropItemNaturally(block.getLocation(), itemStack);
+                }
             }
         }else{
             System.out.println(player.getName() + " has used a fortune level above 3!");
