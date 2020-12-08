@@ -22,7 +22,7 @@ public class BlockBreakEventHandeler implements Listener {
         if(e.getBlock().getType().equals(Material.ANCIENT_DEBRIS)){
             if(Morefortune.getConfigFile().getBoolean("settings.EnableNetherite")){
                 ItemStack item = e.getPlayer().getInventory().getItemInMainHand();
-                if(item.hasItemMeta() && item.getItemMeta().hasEnchant(Enchantment.LOOT_BONUS_BLOCKS)){
+                if(item.getItemMeta().hasEnchant(Enchantment.LOOT_BONUS_BLOCKS)){
                     e.setCancelled(true);
                     int level = item.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS);
                     Util.handleFortune(random, level, e.getPlayer().getWorld(), e.getBlock(), e.getPlayer());
@@ -31,9 +31,10 @@ public class BlockBreakEventHandeler implements Listener {
         }else if(e.getBlock().getType().equals(Material.CLAY)){
             if(Morefortune.getConfigFile().getBoolean("settings.EnableClay")){
                 ItemStack item = e.getPlayer().getInventory().getItemInMainHand();
-                if(item.hasItemMeta() && item.getItemMeta().hasEnchant(Enchantment.LOOT_BONUS_BLOCKS)){
+                if(item.getItemMeta().hasEnchant(Enchantment.LOOT_BONUS_BLOCKS)){
                     e.setCancelled(true);
                     int level = item.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS);
+                    e.getPlayer().sendMessage(String.valueOf(level));
                     Util.handleFortune(random, level, e.getPlayer().getWorld(), e.getBlock(), e.getPlayer());
                 }
             }

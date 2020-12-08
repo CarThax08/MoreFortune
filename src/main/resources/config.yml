@@ -1,3 +1,5 @@
+#Please note: setting EnableClay to true may cause duplication, as 4 clay balls make 1 clay block and 1 clay block can drop up to 16 clay balls.
+
 settings:
   EnableNetherite: true
   EnableClay: true
