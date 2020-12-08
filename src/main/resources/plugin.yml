@@ -1,0 +1,6 @@
+name: MoreFortune
+version: ${project.version}
+main: com.github.carthax08.morefortune.Morefortune
+api-version: 1.16
+authors: [Carthax08]
+description: Adds fortune to blocks that otherwise wouldn't have fortune. It makes them easier to get.
